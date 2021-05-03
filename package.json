@@ -1,0 +1,22 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "open http://localhost:3030 && node server.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssiahpolo1/practice.git"
+  },
+  "keywords": [],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssiahpolo1/practice/issues"
+  },
+  "homepage": "https://github.com/ssiahpolo1/practice#readme"
+}

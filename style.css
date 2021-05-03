@@ -1,0 +1,34 @@
+body {
+    background-color: white;
+}
+#main {
+    display: flex;
+    flex-direction: column;
+   
+}
+.search-bar {
+    margin-top: 5rem;
+}
+.input-box {
+    width: 30rem;
+    height: 2rem;
+    margin: auto;
+    padding-left: 1rem;
+}
+.search {
+    width: 5rem;
+    height: 2rem;
+}
+.container {
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+.movie-container {
+    width: 15rem;
+    height: 20rem;
+    background-color: wheat;
+}
