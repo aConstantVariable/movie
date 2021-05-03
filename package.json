@@ -1,11 +1,11 @@
 {
-  "name": "practice",
+  "name": "movieapp",
   "version": "1.0.0",
   "description": "test",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "open http://localhost:3030 && node server.js"
+    "start": "parcel index.html"
   },
   "type": "module",
   "repository": {

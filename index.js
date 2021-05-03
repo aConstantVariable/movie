@@ -1,23 +1,31 @@
-import { ApiService } from './src/apiService.js';
 
-export class movieApp {
-    constructor(){}
-
-    search_item = document.getElementsByClassName('input-box');
-    search_button = document.getElementsByClassName('search');
-    
-    // search_button.addEventListener('click', function(event) {
-    //     ApiService.searchByName(search_item);
-    // });
+const MOVIE_API = 'http://www.omdbapi.com/?apikey=f5203a41';
+(function initialLoad() {
+    fetch(`${MOVIE_API}&t=Strange`)
+    .then(res => res.json())
+    .then(data => extractData(data))
+    .catch(error => console.log('error'));
+})();
 
 
-    
-    searchMovie() {
-        console.log('hi');
-        ApiService.searchByName()
+
+
+search_item = document.getElementsByClassName('input-box')[0];
+window.searchMovie = function () {
+    if (search_item.value !== this.undefined) {
+        fetch(`${MOVIE_API}&t=${search_item.value}`)
+            .then(res => res.json())
+            .then(data => extractData(data))
+            .catch(error => console.log('error'));
+    } else {
+        console.log(' nothing');
     }
 
-    // searchMovie() {
-
-    // }
 }
+
+function extractData(data) {
+    console.log(data);
+    var elm = document.getElementById('img');
+    elm.src = data.Poster;
+}
+
