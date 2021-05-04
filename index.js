@@ -8,18 +8,22 @@ const MOVIE_API = 'http://www.omdbapi.com/?apikey=f5203a41';
 
 search_item = document.getElementsByClassName('input-box')[0];
 window.searchMovie = function () {
-    if (search_item.value !== this.undefined) {
+    if (search_item.value !== '') {
         fetch(`${MOVIE_API}&t=${search_item.value}`)
             .then(res => res.json())
             .then(data => extractData(data))
             .catch(Error => console.log('error'));
     } else {
-        console.log(' nothing');
+        document.getElementsByClassName('welcome-text')[0].style.display='none';
+        document.getElementsByClassName('movie-not-found')[0].style.display='none';
+        document.getElementsByClassName('empty-input')[0].style.display='inline';
+
     }
 }
 
 function extractData(data) {
     document.getElementsByClassName('welcome-text')[0].style.display='none';
+    document.getElementsByClassName('empty-input')[0].style.display='inline';
 
     if(data.Response === 'True') {
         document.getElementsByClassName('movie-not-found')[0].style.display='none';
@@ -42,6 +46,7 @@ function extractData(data) {
         `
     } else {
         document.getElementsByClassName('container')[0].style.display='none';
+        document.getElementsByClassName('empty-input')[0].style.display='none';
         document.getElementsByClassName('movie-not-found')[0].style.display='inline';
 
     }

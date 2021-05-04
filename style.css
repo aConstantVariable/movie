@@ -157,3 +157,12 @@ p {
     margin-top: 1rem;
     display: none;
 }
+
+.empty-input {
+    font-size: 3rem;
+    color: white;
+    font-family: sans-serif;
+    font-style: oblique;
+    margin-top: 1rem;
+    display: none;
+}
