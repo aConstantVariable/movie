@@ -5,6 +5,7 @@
   </head>
   <body>
     <main id="main">
+        
       <div class="sky-background"></div>
       <div class="search-content">
         <div class="search-bar">
@@ -12,11 +13,17 @@
             <button class="search" onclick="searchMovie(event)"  type="button"> Search </button>
 
         </div>
+        <div class="welcome-text"> Let's find you a movie</div>
+        <div class="movie-not-found"> Sorry, movie not found. Maybe have a typo?</div>
+        
       <div class="container">
           <div class="movie-container">
             <img id="img" src="">
-              
+            <div class="overlay"><p>watch it now</p>  
+              <a href="https://www.youtube.com/"><img id="ytube" src='/unnamed.png'></a>
           </div>
+          <div class="movie-info"></div>
+
       </div>
     </div>
     </main>

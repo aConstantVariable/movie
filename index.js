@@ -1,14 +1,10 @@
 
 const MOVIE_API = 'http://www.omdbapi.com/?apikey=f5203a41';
 (function initialLoad() {
-    fetch(`${MOVIE_API}&t=Strange`)
-    .then(res => res.json())
-    .then(data => extractData(data))
-    .catch(error => console.log('error'));
+    
+    document.getElementsByClassName('container')[0].style.display='none';
+
 })();
-
-
-
 
 search_item = document.getElementsByClassName('input-box')[0];
 window.searchMovie = function () {
@@ -16,16 +12,39 @@ window.searchMovie = function () {
         fetch(`${MOVIE_API}&t=${search_item.value}`)
             .then(res => res.json())
             .then(data => extractData(data))
-            .catch(error => console.log('error'));
+            .catch(Error => console.log('error'));
     } else {
         console.log(' nothing');
     }
-
 }
 
 function extractData(data) {
-    console.log(data);
-    var elm = document.getElementById('img');
-    elm.src = data.Poster;
+    document.getElementsByClassName('welcome-text')[0].style.display='none';
+
+    if(data.Response === 'True') {
+        document.getElementsByClassName('movie-not-found')[0].style.display='none';
+        document.getElementsByClassName('container')[0].style.display='';
+        var elm = document.getElementById('img');
+        elm.src = data.Poster;
+        var info = document.getElementsByClassName('movie-info')[0];
+        info.innerHTML = `Title: ${data.Title} <br> 
+        Actors: ${data.Actors} <br>
+        Awards: ${data.Awards} <br>
+        BoxOffice: ${data.BoxOffice} <br>
+        Country: ${data.Country} <br>
+        DVD: ${data.DVD} <br>
+        Director: ${data.Director} <br>
+        Genre: ${data.Genre} <br>
+        Language: ${data.Language} <br>
+        Year: ${data.Year} <br>
+        imdbID: ${data.imdbID} <br>
+        imdbRating: ${data.imdbRating}
+        `
+    } else {
+        document.getElementsByClassName('container')[0].style.display='none';
+        document.getElementsByClassName('movie-not-found')[0].style.display='inline';
+
+    }
+   
 }
 
